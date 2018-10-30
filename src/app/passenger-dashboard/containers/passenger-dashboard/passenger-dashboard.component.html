@@ -1,0 +1,8 @@
+<div>
+    <h3>Airline Passengers!</h3>
+    <app-passenger-count [items]="passengers"></app-passenger-count>
+    Count: {{ passengers.length }}
+
+    <app-passenger-detail *ngFor="let p of passengers;" [detail]="p" (edit)="handleEdit($event)" (remove)="handleRemove($event)"></app-passenger-detail>
+
+</div>
