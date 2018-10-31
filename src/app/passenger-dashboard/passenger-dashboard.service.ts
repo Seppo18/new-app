@@ -2,7 +2,7 @@ import { Response } from "@angular/http";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operator";
+import { map  } from "rxjs/operators";
 
 import { Passenger } from "./models/passenger.interface";
 
@@ -15,7 +15,7 @@ export class PasssangerDashboardService {
 
   getPassangers(): Observable<Passenger[]> {
     return this.http.get(PASSANGER_API).pipe(
-        map(data => data.json())
+        map(data => {(console.log(data)); return null; })
     );
   }
 }

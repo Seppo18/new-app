@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { Passenger } from "../../models/passenger.interface";
 import { PasssangerDashboardService } from "../../passenger-dashboard.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-passenger-dashboard",
@@ -12,7 +13,7 @@ export class PassengerDashboardComponent implements OnInit {
   passengers: Passenger[];
   constructor(private passangerService: PasssangerDashboardService) {}
   ngOnInit() {
-    this.passengers = this.passangerService.getPassangers();
+    this.passangerService.getPassangers().subscribe((ob: Passenger[]) => { this.passengers = ob; });
   }
 
   handleEdit(event: Passenger) {
